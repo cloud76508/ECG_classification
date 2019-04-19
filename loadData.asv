@@ -1,5 +1,4 @@
 clear all
-clc
 
 % import the data of normal ECG
 temp = fopen('nsr180_data.csv');
@@ -67,31 +66,11 @@ testNormal.Y = [zeros(size(testNormal.X,1),1)];
 maxTrainX = max(train.X);
 minTrainX = min(train.X);
 
-% normalize train.X
-temp = [];
-for n = 1:size(train.X,1)
+temp
+for n = 1:size(train.X)
     temp(n,1) = (train.X(n,1)-minTrainX(1))/(maxTrainX(1) - minTrainX(1)); 
     temp(n,2) = (train.X(n,2)-minTrainX(2))/(maxTrainX(2) - minTrainX(2));
 end
-train.X = temp;
 
-% normalize testAF.X
-temp = [];
-for n = 1:size(testAF.X,1)
-    temp(n,1) = (testAF.X(n,1)-minTrainX(1))/(maxTrainX(1) - minTrainX(1)); 
-    temp(n,2) = (testAF.X(n,2)-minTrainX(2))/(maxTrainX(2) - minTrainX(2));
-end
-testAF.X = temp;
-
-% normalize testNormal.X
-temp = [];
-for n = 1:size(testNormal.X,1)
-    temp(n,1) = (testNormal.X(n,1)-minTrainX(1))/(maxTrainX(1) - minTrainX(1)); 
-    temp(n,2) = (testNormal.X(n,2)-minTrainX(2))/(maxTrainX(2) - minTrainX(2));
-end
-testNormal.X = temp;
-
-clearvars -except train testAF testNormal maxTrainX minTrainX
-
-% model = svmtrain(train.Y, train.X);
-% [Prediction, Acc, values] = svmpredict(train.Y,train.X,model);
+% model = svmtrain(train.Y, train.X)
+% [Prediction, Acc, values] = svmpredict(train.Y,train.X,model)
