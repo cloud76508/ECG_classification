@@ -2,7 +2,8 @@ clear all
 clc
 
 % import the data of normal ECG
-temp = fopen('nsr180_data.csv');
+%temp = fopen('nsr180_data.csv');
+temp = fopen('C:\Users\User\Documents\GitHub\ECG_classification\final_version_data\data_nsr180.csv');
 normalRaw = textscan(temp, '%s', 'Delimiter',',');
 % fix some formatting issue
 temp = normalRaw{1,1}{1};
@@ -20,7 +21,8 @@ for n= 1:length(normalRawNumber)/360
 end
 
 % import the data of AF ECG
-temp = fopen('af180_data.csv');
+%temp = fopen('af180_data.csv');
+temp = fopen('C:\Users\User\Documents\GitHub\ECG_classification\final_version_data\data_af180.csv');
 AFRaw = textscan(temp, '%s', 'Delimiter',',');
 % fix some formatting issue
 temp = AFRaw{1,1}{1};

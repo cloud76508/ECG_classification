@@ -6,12 +6,6 @@ loadData
 % testAF.X(:,1) = [];
 % testNormal.X(:,1) = [];
 
-% load fisheriris
-% X = meas;
-% Y = species;
-% Mdl = fitcknn(X,Y,'NumNeighbors',5,'Standardize',1);
-% label = predict(Mdl,X(1,:));
-
 fold = 10;
 
 trainPositive = train.X(1:size(train.X,1)/2,:);
